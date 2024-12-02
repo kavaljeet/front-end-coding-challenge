@@ -1,0 +1,89 @@
+<section class="multicolumn-custom-section">
+  <div class="page-width">
+    {% if section.settings.main_heading %}
+      <h2 class="main-heading">{{ section.settings.main_heading }}</h2>
+    {% endif %}
+    
+    {% if section.settings.sub_title %}
+      <div class="sub-title">{{ section.settings.sub_title }}</div>
+    {% endif %}
+    
+    <div class="content-blocks">
+      {% for block in section.blocks %}
+        {% if block.type == 'content_block' %}
+          <div class="content-block">
+            {% if block.settings.block_image %}
+              <div class="block-image">
+                <img src="{{ block.settings.block_image | img_url: '112x112' }}" alt="{{ block.settings.block_heading }}">
+              </div>
+            {% endif %}
+            
+            <div class="block-content">
+              {% if block.settings.block_heading %}
+                <h2 class="block-heading">{{ block.settings.block_heading }}</h2>
+              {% endif %}
+              
+              {% if block.settings.block_body %}
+                <div class="block-body">{{ block.settings.block_body }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+
+{
+  "name": "Multicolumn Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Your Main Heading Here"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_title",
+      "label": "Subtitle",
+      "default": "Your subtitle goes here. Provide a brief description."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "block_heading",
+          "label": "Block Heading",
+          "default": "Block Heading Here"
+        },
+        {
+          "type": "textarea",
+          "id": "block_body",
+          "label": "Block Body Copy",
+          "default": "This is the body copy for this block."
+        }
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multicolumn Section",
+      "category": "Custom"
+    }
+  ]
+}
+
+{% endschema %}

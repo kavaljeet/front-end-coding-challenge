@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner_with_image_XYftyA": {
+      "type": "banner-with-image",
+      "settings": {
+        "left_image": "shopify://shop_images/black-friday-20-percent-off.png",
+        "left_text": "code <span>20FB</span>",
+        "button_1_link": "shopify://collections/shop-dogs",
+        "button_1_text": "Shop Dogs",
+        "button_2_link": "shopify://collections/shop-cats",
+        "button_2_text": "Shop Cats",
+        "right_image": "shopify://shop_images/product-portfolio-1.png"
+      }
+    },
+    "multicolumn_section_custom_DHNeWA": {
+      "type": "multicolumn-section-custom",
+      "blocks": {
+        "content_block_prPmDL": {
+          "type": "content_block",
+          "settings": {
+            "block_image": "shopify://shop_images/healthy-digestion.png",
+            "block_heading": "Optimal Digestion",
+            "block_body": "Expertly cooked fresh meat with prebiotics from chicory and yeasts means easy digestion."
+          }
+        },
+        "content_block_hyAXTz": {
+          "type": "content_block",
+          "settings": {
+            "block_image": "shopify://shop_images/healthy-skin-and-coat.png",
+            "block_heading": "Healthy skin & coat",
+            "block_body": "Fresh meat contains more healthy fats that are crucial for maintaining a healthy skin and coat."
+          }
+        },
+        "content_block_pVDKmi": {
+          "type": "content_block",
+          "settings": {
+            "block_image": "shopify://shop_images/supports-natural-immunity.png",
+            "block_heading": "Supports natural immunity",
+            "block_body": "Designed with the right balance of omega 3 and 6 to activate the body’s natural anti-inflammatory response."
+          }
+        }
+      },
+      "block_order": [
+        "content_block_prPmDL",
+        "content_block_hyAXTz",
+        "content_block_pVDKmi"
+      ],
+      "settings": {
+        "main_heading": "9 out of 10 customers see the difference",
+        "sub_title": "Result derived from a survey of 1,239 customers"
+      }
+    },
+    "rich_text_and_hero_image_section_cXBJMT": {
+      "type": "rich-text-and-hero-image-section",
+      "blocks": {
+        "image_text_block_UQfgGX": {
+          "type": "image_text_block",
+          "settings": {
+            "block_image": "shopify://shop_images/dog.png",
+            "block_text": "$1.29"
+          }
+        },
+        "image_text_block_fNpLxp": {
+          "type": "image_text_block",
+          "settings": {
+            "block_image": "shopify://shop_images/cat.png",
+            "block_text": "$0.79"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_UQfgGX",
+        "image_text_block_fNpLxp"
+      ],
+      "settings": {
+        "main_heading": "A bowl full of real ingredients",
+        "sub_heading": "For a long and full life"
+      }
+    },
+    "featured_collection_tabs_Mct8k6": {
+      "type": "featured-collection-tabs",
+      "settings": {
+        "title": "Start with our bestsellers",
+        "sub-title": "Approved by over 1 million dog and cats"
+      }
+    }
+  },
+  "order": [
+    "banner_with_image_XYftyA",
+    "multicolumn_section_custom_DHNeWA",
+    "rich_text_and_hero_image_section_cXBJMT",
+    "featured_collection_tabs_Mct8k6"
+  ]
+}

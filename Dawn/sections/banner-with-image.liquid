@@ -1,0 +1,85 @@
+
+<div class="banner-with-image-wrapper">
+  <div class="page-width">
+    <div class="two-columns">
+      <!-- Left Column -->
+      <div class="left-column">
+        {% if section.settings.left_image %}
+          <img src="{{ section.settings.left_image | img_url : '450x220' }}" alt="Black friday get 20% off">
+        {% endif %}
+        <div class="text-content" role="none">
+          {{ section.settings.left_text }}
+        </div>
+        <div class="banner-image-buttons">
+          {% if section.settings.button_1_link %}
+            <a href="{{ section.settings.button_1_link }}" class="button">{{ section.settings.button_1_text }}</a>
+          {% endif %}
+          {% if section.settings.button_2_link %}
+            <a href="{{ section.settings.button_2_link }}" class="button">{{ section.settings.button_2_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        {% if section.settings.right_image %}
+          <img src="{{ section.settings.right_image | img_url : '620x400' }}" alt="Fingo and Bingo products">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner With image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Column Image"
+    },
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Column Text",
+      "default": "This is some sample text for the left column."
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Button 1"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Button 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Column Image"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Banner With image",
+      "category": "Custom Sections"
+    }
+  ],
+
+}
+{% endschema %}

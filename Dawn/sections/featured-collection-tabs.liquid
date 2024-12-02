@@ -1,0 +1,114 @@
+{% schema %}
+{
+  "name": "Product Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Browse Our Products"
+    },{
+      "type": "text",
+      "id": "sub-title",
+      "label": "Sub Title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Tabs",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-tabs-section__wrap">
+  <h2>{{ section.settings.title }}</h2>
+  <div class="sub__title_tabs">{{ section.settings.sub-title }}</div>
+  <div class="product-tabs">
+    <button class="tab-button active" data-tab="shop-dogs">Dog</button>
+    <button class="tab-button" data-tab="shop-cats">Cat</button>
+  </div>
+  <div class="tab-content">
+    <!-- Dogs Tab -->
+    <div class="tab-panel active" id="shop-dogs">
+      <div class="product-grid">
+        {% for product in collections['shop-dogs'].products limit: 3 %}
+          <div class="product-block">
+            <div class="image__box_tab_prod">
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+              {% if product.tags.size > 0 %}
+  <div class="tag__wrap_top">
+    {% for tag in product.tags %}
+      <div class="tag-item">{{ tag }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+            </div>
+            <h3>{{ product.title }}</h3>
+            <div class="prod__price_tot">From {{ product.price | money }}</div>
+            {% if product.metafields.custom.product_showcase_text %}
+              <ul>
+               {% assign features = product.metafields.custom.product_showcase_text | remove: "[" | remove: "]" | remove: '"' | split: "," %}
+                {% for feature in features %}
+                  <li>{{ feature}}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+
+        {% endfor %}
+      </div>
+      <a href="/collections/shop-dogs">All Recipes</a>
+    </div>
+    <!-- Cats Tab -->
+    <div class="tab-panel" id="shop-cats">
+      <div class="product-grid">
+        {% for product in collections['shop-cats'].products limit: 3 %}
+          <div class="product-block">
+            <div class="image__box_tab_prod">
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+              {% if product.tags.size > 0 %}
+  <div class="tag__wrap_top">
+    {% for tag in product.tags %}
+      <div class="tag-item">{{ tag }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+            </div>
+            <h3>{{ product.title }}</h3>
+            <div class="prod__price_tot">From {{ product.price | money }}</div>
+            {% if product.metafields.custom.product_showcase_text %}
+              <ul>
+                {% assign features = product.metafields.custom.product_showcase_text | remove: "[" | remove: "]" | remove: '"' | split: "," %}
+                {% for feature in features %}
+                  <li>{{ feature | strip }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+          </div>
+        {% endfor %}
+      </div>
+      <a href="/collections/shop-cats">All Recipes</a>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const target = this.dataset.tab;
+      
+      // Activate the clicked button
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show the corresponding tab panel
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
+    });
+  });
+</script>
